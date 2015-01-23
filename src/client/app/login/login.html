@@ -1,0 +1,25 @@
+<div class="container w-xxl w-auto-xs">
+    <a href class="navbar-brand block m-t"><img src="../images/pureminutes-logo.png" height="70px" alt="Pure Minutes"/></a>
+    <div class="m-b-lg">
+        <div class="alert alert-success" role="alert">
+            <strong>Notification!</strong> We can have some messages displayed.
+        </div>
+        <form name="form" class="form-validation" ng-submit="vm.loginBtn()">
+            <div class="text-danger wrapper text-center" ng-class="{'block hide': !vm.authError}">
+                <!--ng-show="authError"-->
+                <!--{{authError}}-->
+            </div>
+            <div class="list-group list-group-sm">
+                <div class="list-group-item">
+                    <input type="phone" placeholder="Phone Number" class="form-control no-border" ng-model="vm.user.phone" required autofocus>
+                </div>
+                <div class="list-group-item">
+                    <input type="password" placeholder="Password" class="form-control no-border" ng-model="vm.user.password" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled='form.$invalid'>Log in</button>
+            <div class="text-center m-t m-b"><a ui-sref="access.forgotpwd">Forgot password?</a></div>
+            <div class="line line-dashed"></div>
+        </form>
+    </div>
+</div>

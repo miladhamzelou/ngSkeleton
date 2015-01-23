@@ -1,0 +1,35 @@
+<div ng-controller="ShellController as main" class="app ng-scope app-header-fixed app-aside-fixed" ng-class="{'app-aside-folded':main.asideFolded}" id="app">
+        <!--top nav-->
+        <ht-top-nav navline="main.navline" ng-if="main.isAuthenticated()" class="app-header navbar"></ht-top-nav>
+        <!--/top nav-->
+
+        <!-- menu -->
+        <div data-ng-include=" 'app/layout/sidebar.html' " ng-if="main.isAuthenticated()" class="app-aside hidden-xs bg-black">
+        </div>
+        <!-- / menu -->
+
+        <!-- content -->
+        <div class="app-content" ng-class="{'m-l-none': !main.isAuthenticated()}">
+            <div></div>
+            <a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".app-aside" ></a>
+            <div class="app-content-body fade-in-up" ui-view></div>
+        </div>
+        <!-- /content -->
+
+    <!-- footer -->
+    <div class="app-footer wrapper b-t bg-light" ng-class="{'m-l-none': !main.isAuthenticated()}">
+        <span class="pull-right"><a href ui-scroll="app" class="m-l-sm text-muted"><i class="fa fa-long-arrow-up"></i></a></span>
+        <div class="badges pull-right">
+            <a href="http://www.bbb.org/new-york-city/business-reviews/telephone-service-long-distance/pure-minutes-llc-in-new-york-ny-136150/#bbbonlineclick">
+                <img src="../images/bbb-badge-new.png" alt="BBB Review"/>
+            </a>
+            <a href="https://www.paypal.com/us/verified/pal=support%40qttalk.com">
+                <img src="../images/paypal-badge.png" alt="Secured by Paypal"/>
+            </a>
+        </div>
+        <div>&copy; 2014 Copyright Pure Minutes.
+            <br/> Agent Support: <button class="btn btn-primary btn-xs">USA: <span class="font-bold">(866) 558-4169</span></button> | <button class="btn btn-primary btn-xs">Puerto Rico: <span class="font-bold">(787) 919-0307</span></button></div>
+    </div>
+    <!-- / footer -->
+
+</div>

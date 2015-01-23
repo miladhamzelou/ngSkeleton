@@ -1,0 +1,54 @@
+<div class="row">
+    <h1>{{vm.title}}</h1>
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+        <h1 class="text-center login-title">Register to Pure Minutes Portal</h1>
+        <div class="register-wall">
+            <div class="col-xs-12">
+            <form name="register" role="form" ng-submit="vm.submit()" novalidate>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="first_name" id="first_name" ng-model="vm.user.first_name" class="form-control input-sm" placeholder="First Name" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="last_name" id="last_name" ng-model="vm.user.last_name" class="form-control input-sm" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" name="email" id="email" ng-model="vm.user.email" class="form-control input-sm" placeholder="Email Address" required>
+                    <div class="col-xs-12">
+                        <p class="help-block" ng-show="register.email.$dirty && register.email.$invalid">Please enter a proper email address.</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="phone" id="phone" ng-model="vm.user.phone" class="form-control input-sm" placeholder="Phone Number" required>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="password" name="password" id="password" ng-model="vm.user.password" class="form-control input-sm" placeholder="Password" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="password" name="password_confirm" id="password_confirm" ng-model="vm.user.password_confirm" class="form-control input-sm" placeholder="Confirm Password" validate-equals="vm.user.password">
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <p class="help-block" ng-show="register.password_confirm.$dirty && register.password_confirm.$invalid">Please match the passwords</p>
+                    </div>
+                </div>
+
+                <input type="submit" value="Register" class="btn btn-info btn-block" ng-disabled="register.$invalid">
+
+            </form>
+            </div>
+        </div>
+    </div>
+</div>

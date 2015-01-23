@@ -1,0 +1,327 @@
+<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Recharge Pinless</h1>
+</div>
+<div class="wrapper-md">
+
+    <div class="row m-b-sm">
+            <div class="col-md-6">
+            <div class="panel panel-default" style="min-height: 137px;">
+                <div class="panel-heading font-bold">
+                    Enter User Phone Number
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" name="pinless" novalidate>
+                        <label class="col-sm-3 control-label">Phone Number</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="phoneNumber" international-phone-number ng-model="vm.phone"
+                                   class="form-control input-lg font-bold"
+                                   ng-change="vm.registerPhone(pinless.phoneNumber.$valid)">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold">
+                    Pure Minutes News
+                </div>
+                <div class="panel-body">
+                    <article class="media">
+                        <div class="pull-left">
+                          <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-bold fa-stack-1x text-white"></i>
+                          </span>
+                        </div>
+                        <div class="media-body">
+                            <a href class="h4">PM: $3 Free Trial for All New Customers</a>
+                            <small class="block m-t-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</small>
+                            <em class="text-xs">Posted on <span class="text-danger">Feb 23, 2013</span></em>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="animated fadeInUp"
+         ng-show="pinless.phoneNumber.$valid && pinless.phoneNumber.$dirty && !vm.phoneChecked">
+
+        <div class="panel panel-default">
+              <div class="panel-heading font-bold">
+                  Register New User
+              </div>
+            <div class="panel-body">
+
+                <form class="form-horizontal col-md-8">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-id-1">Name</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="input-id-1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-id-1">Language Preference</label>
+
+                        <div class="col-sm-5">
+                            <select name="account" class="form-control m-b" ng-options="lang.name for lang in vm.languages" ng-model="vm.selectedLang"> </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <button type="submit" class="btn btn-default">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="col-md-4">
+                    <img src="/images/trial-banner.jpg" alt="Free" class="img-full">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="animated fadeInUp" ng-show="vm.newPhone && pinless.phoneNumber.$valid">
+        <div class="row m-b-sm">
+            <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold">
+                    Client Information
+                </div>
+                <div class="panel-body">
+                    <div class="col-lg-6">
+                        <p>
+                            <strong>Subscriber:</strong> Test Test<br>
+                            <strong>Phone Number:</strong> 212-222-2222<br>
+                            <strong>Current Balance:</strong> $30.00
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>
+                            <strong>User Since:</strong> 12/06/12<br>
+                            <strong>Recharges to Date:</strong> $30.00<br>
+                            <strong>Date Last Purchased:</strong> 01/14/15 7:27PM (Eastern Time)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+            <div class="tab-container">
+                <tabset>
+                    <tab heading="Add Credit" class="font-bold">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p>Select the amount you wish to recharge.</p>
+                                <form class="form-horizontal m-b-md" novalidate>
+                                    <div class="m-b-sm">
+                                        <label class="radio-inline i-checks font-bold text-lg">
+                                            <input type="radio" name="amount" ng-model="recharge.amount" value="3"><i></i> $3
+                                        </label>
+                                        <label class="radio-inline i-checks font-bold text-lg">
+                                            <input type="radio" name="amount" ng-model="recharge.amount" value="5"><i></i> $5
+                                        </label>
+                                        <label class="radio-inline i-checks font-bold text-lg">
+                                            <input type="radio" name="amount" ng-model="recharge.amount" value="10"><i></i> $10
+                                        </label>
+                                        <label class="radio-inline i-checks font-bold text-lg">
+                                            <input type="radio" name="amount" ng-model="recharge.amount" value="15"><i></i> $15
+                                        </label>
+                                        <label class="radio-inline i-checks font-bold text-lg">
+                                            <input type="radio" name="amount" ng-model="recharge.amount" value="20"><i></i> $20
+                                        </label>
+                                        <label class="radio-inline i-checks font-bold text-lg">
+                                            <input type="radio" name="amount" ng-model="recharge.amount" value="Other"><i></i> Other
+                                        </label>
+                                    </div>
+
+                                    <div class="row m-b-sm" ng-if="recharge.amount == 'Other' || recharge.amount > 20">
+                                        <div class="col-xs-12">
+                                            <div style="width:15em;">
+                                                <input class="form-control" type="number" min="25" ng-model="recharge.otherAmount" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn m-b-xs w-xs btn-primary">Recharge</button>
+
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </tab>
+                    <tab heading="Speed Dial" class="font-bold">
+                        <div class="row m-b-md">
+                            <div class="col-md-8">
+                                <form action="#" method="post" class="form-horizontal">
+                                    <h4 class="m-b-md">
+                                        Create a personal access number that connects users directly with their most
+                                        frequently called destination numbers in just one step...
+                                    </h4>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-5">
+                                            <span class="badge bg-primary">1</span>
+                                            <span>Type name of new contact</span>
+                                        </label>
+
+                                        <div class="col-sm-7">
+                                            <input type="text" value="" class="form-control" id="TxtNickname">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-5">
+                                            <span class="badge bg-primary">2</span>
+                                            <span>
+                                                Enter destination number using 011 or 1+ number formal
+                                            </span>
+                                        </label>
+
+                                        <div class="col-sm-7">
+                                            <input name="phone" type="text" value="" class="form-control"
+                                                   id="TxtdestNumber">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-5">
+                                            <span class="badge bg-primary">3</span>
+                                            <span>Add contacts and view personal access number created below</span>
+                                        </label>
+
+                                        <div class="col-sm-7">
+                                            <input name="submit" type="submit" value="ADD NEW CONTACT"
+                                                   class="btn btn-md btn-primary" id="btnAddContact">
+                                        </div>
+                                    </div>
+
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                        <tr>
+                                            <th>Contact Name</th>
+                                            <th>Destination Number</th>
+                                            <th>Access Number</th>
+                                            <th width="100px"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Eduardo Zamora</td>
+                                            <td>0050587116686</td>
+                                            <td>16465369424</td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
+                                                <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gary Lane</td>
+                                            <td>0000000000000</td>
+                                            <td>0000000000000</td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
+                                                <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <img src="/images/parrot_call.png" alt="mobile world">
+                                </div>
+
+                                <h3>What happens next?</h3>
+
+                                <p>Next time you want to call one of your contacts, simply dial the personal access
+                                    number we assigned to that contact. You will be directly dialing your destination
+                                    number in one step. </p>
+
+                                <p>You never have to type your destination number again!</p>
+
+                                <h3>Hot tip....</h3>
+
+                                <p>Save the personal access number to the contact list in your mobile phone for one
+                                    touch dialing.</p>
+                            </div>
+                        </div>
+                    </tab>
+                    <tab heading="Settings" class="font-bold">
+                        <div class="row">
+                        <div class="col-xs-12 m-b-sm">
+                            <div class="row">
+                            <div class="col-sm-4">
+                                <h4>Language preference</h4>
+                                <div class="radio">
+                                    <label class="i-checks">
+                                        <input type="radio" name="prefLang" value="option2" checked="true">
+                                        <i></i>
+                                        ENGLISH
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="i-checks">
+                                        <input type="radio" name="prefLang" value="option2">
+                                        <i></i>
+                                        SPANISH
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <h4>SMS messaging services</h4>
+                                <div class="radio">
+                                    <label class="i-checks">
+                                        <input type="radio" name="smsPref" value="option2" checked="true">
+                                        <i></i>
+                                        YES, allow me to receive up to date news and notifications from Pure Minutes.
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="i-checks">
+                                        <input type="radio" name="smsPref" value="option2">
+                                        <i></i>
+                                        NO, I do not want to receive up to date news and notifications from Pure Minutes.
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <h4>More options for account settings</h4>
+                                <div class="radio">
+                                    <label class="i-checks">
+                                        <input type="radio" name="newsPref" value="option2" checked="true">
+                                        <i></i>
+                                        YES, allow me to receive up to date news and notifications from Pure Minutes.
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="i-checks">
+                                        <input type="radio" name="newsPref" value="option2">
+                                        <i></i>
+                                        NO, I do not want to receive up to date news and notifications from Pure Minutes.
+                                    </label>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </tab>
+                </tabset>
+            </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>

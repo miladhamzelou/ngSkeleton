@@ -1,0 +1,16 @@
+﻿<div class="aside-wrap" ng-controller="SidebarController as vm">
+    <div ng-include="'app/layout/profile.html'"></div>
+    <div class="navi-wrap">
+        <!--navbar-->
+        <ul class="nav">
+            <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                <span>Navigation</span>
+            </li>
+            <li ng-repeat="r in vm.navRoutes" ui-sref-active="active">
+                <a ui-sref="{{r.name}}" ng-bind-html="r.settings.content"></a>
+            </li>
+        </ul>
+        <!--/navbar-->
+    </div>
+</div>
+
